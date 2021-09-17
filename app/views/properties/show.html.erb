@@ -1,0 +1,16 @@
+<h1><%= @property.title %></h1>
+<p><%= @property.description %></p>
+<p>Quartos: <%= @property.rooms %></p>
+<p>Banheiros: <%= @property.bathrooms %></p>
+
+<% if @property.pets == true %>
+    <p>Aceita Pets: Sim</p>
+<% else %> 
+    <p>Aceita Pets: Não</p>
+<% end %>
+<% if @property.parking_slot == true %>
+    <p>Estacionamento: Sim</p>
+<% else %> 
+    <p>Estacionamento: Não</p>
+<% end %>
+<p>Diária: R$ <%= @property.daily_rate.to_i %></p>
