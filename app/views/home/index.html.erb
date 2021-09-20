@@ -1,17 +1,17 @@
 <h1>Flats</h1>
 <h3>Boas vindas ao sistema de locação de apartamentos</h3
    
-<% unless @properties.nil? then %>
+<% unless @properties.empty?%>
     <ul>
-        <% @properties.each do |p| %>
+        <% @properties.each do |property| %>
             <h4>
-                <%= link_to p.title, p %>
+                <%= link_to property.title, property%>
             </h4>
             <li>
-                <%= p.description%>
+                <%= property.description%>
             </li>
             <li>
-                    Quartos: <%= p.rooms%>
+                    Quartos: <%= property.rooms%>
                 </li>
         <% end %>
     </ul>
