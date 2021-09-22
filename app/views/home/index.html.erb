@@ -1,5 +1,9 @@
 <h1>Flats</h1>
-<h3>Boas vindas ao sistema de locação de apartamentos</h3
+<h3>Boas vindas ao sistema de locação de apartamentos</h3>
+
+<nav>
+    <%= link_to 'Cadastrar Imóvel', new_property_path%>
+</nav>
    
 <% unless @properties.empty?%>
     <ul>

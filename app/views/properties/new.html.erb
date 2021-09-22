@@ -1,0 +1,42 @@
+<h1>Cadastro de Imóvel</h1>
+
+<%= form_with model: @property do |form| %>
+    <div>
+        <%= form.label :title, 'Título' %>
+        <%= form.text_field :title %>
+    </div>
+
+    <div>
+        <%= form.label :description, 'Descrição' %>
+        <%= form.text_field :description %>
+    </div>
+
+    <div>
+        <%= form.label :rooms, 'Quartos' %>
+        <%= form.text_field :rooms %>
+    </div>
+
+    <div>
+        <%= form.label :bathrooms, 'Banheiros' %>
+        <%= form.text_field :bathrooms %>
+    </div>
+
+    <div>
+        <%= form.label :daily_rate, 'Diária' %>
+        <%= form.text_field :daily_rate %>
+    </div>
+
+    <div>
+        <%= form.check_box :pets %>
+        <%= form.label :pets, 'Aceita Pets' %>
+    </div>
+
+    <div>
+        <%= form.check_box :parking_slot %>
+        <%= form.label :parking_slot, 'Vaga de Estacionamento' %>
+    </div>
+
+  <div>
+    <%= form.submit 'Enviar'%>
+  </div>
+<% end %>
