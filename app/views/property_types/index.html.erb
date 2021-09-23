@@ -1,0 +1,17 @@
+<nav>
+    <%= link_to 'Cadastrar Tipo de Imóvel', new_property_type_path %>
+</nav>
+
+<% if @property_types.empty?%>
+    <div>
+        Nenhum Tipo de Imóvel Disponível
+    </div>
+<% end %>
+
+<ul>
+    <% @property_types.each do |type| %>
+        <h4>
+            <%= type.name%>
+        </h4>
+    <% end %>
+</ul>

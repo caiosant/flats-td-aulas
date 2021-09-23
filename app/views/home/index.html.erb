@@ -3,24 +3,26 @@
 
 <nav>
     <%= link_to 'Cadastrar Imóvel', new_property_path%>
+    <%= link_to 'Tipos de Imóveis', property_types_path %>
+    <%= link_to 'Regiões', property_locations_path %>
 </nav>
    
-<% unless @properties.empty?%>
-    <ul>
-        <% @properties.each do |property| %>
-            <h4>
-                <%= link_to property.title, property%>
-            </h4>
-            <li>
-                <%= property.description%>
-            </li>
-            <li>
-                    Quartos: <%= property.rooms%>
-                </li>
-        <% end %>
-    </ul>
-<% else %>
+<% if @properties.empty?%>
     <div>
         Nenhum imóvel disponível
     </div>
 <% end %>
+
+<ul>
+    <% @properties.each do |property| %>
+        <h4>
+            <%= link_to property.title, property%>
+        </h4>
+        <li>
+            <%= property.description%>
+        </li>
+        <li>
+                Quartos: <%= property.rooms%>
+            </li>
+    <% end %>
+</ul>
