@@ -40,7 +40,7 @@ describe 'Visitor register property type' do
 
     it 'try to register a type that is already registered.' do
         #Arrange
-        PropertyType.create({name: 'Apartamento'})
+        PropertyType.create!({name: 'Apartamento'})
 
         #Act
         visit root_path
@@ -56,7 +56,7 @@ describe 'Visitor register property type' do
 
     it 'try to register a type that is already registered with the first letter as a downcase' do
         #Arrange
-        PropertyType.create({name: 'Apartamento'})
+        PropertyType.create!({name: 'Apartamento'})
 
         #Act
         visit root_path

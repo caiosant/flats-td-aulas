@@ -1,14 +1,16 @@
 <h1><%= @property.title %></h1>
 <p><%= @property.description %></p>
+<p>Tipo: <%=@property.property_type.name %></p>
+<p>Região: <%= @property.property_location.name %></p>
 <p>Quartos: <%= @property.rooms %></p>
 <p>Banheiros: <%= @property.bathrooms %></p>
 
-<% if @property.pets? %>
+<% if @property.pets %>
     <p>Aceita Pets: Sim</p>
 <% else %> 
     <p>Aceita Pets: Não</p>
 <% end %>
-<% if @property.parking_slot? %>
+<% if @property.parking_slot %>
     <p>Estacionamento: Sim</p>
 <% else %> 
     <p>Estacionamento: Não</p>

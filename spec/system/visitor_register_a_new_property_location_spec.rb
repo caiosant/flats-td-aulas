@@ -40,7 +40,7 @@ describe 'Visitor register property type' do
 
     it 'try to register a location that is already registered.' do
         #Arrange
-        PropertyLocation.create({name: 'Sudeste'})
+        PropertyLocation.create!({name: 'Sudeste'})
 
         #Act
         visit root_path
@@ -56,7 +56,7 @@ describe 'Visitor register property type' do
 
     it 'try to register a location that is already registered with the first letter as a downcase.' do
         #Arrange
-        PropertyLocation.create({name: 'Sudeste'})
+        PropertyLocation.create!({name: 'Sudeste'})
 
         #Act
         visit root_path
