@@ -30,15 +30,5 @@
 <% end %>
 
 <ul>
-    <% @properties.each do |property| %>
-        <h4>
-            <%= link_to property.title, property%>
-        </h4>
-        <li>
-            <%= property.description%>
-        </li>
-        <li>
-                Quartos: <%= property.rooms%>
-            </li>
-    <% end %>
+    <%= render "shared/property_abstract", property: @properties %>
 </ul>

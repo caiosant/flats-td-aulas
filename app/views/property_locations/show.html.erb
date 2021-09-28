@@ -1,6 +1,5 @@
 <h1>Imóveis da Região <%= @property_location.name %></h1>
 
 <h2>Imóveis Disponíveis</h2>
-<% @property_location.properties.each do |property| %>
-  <%= link_to property.title, property%>
-<% end %>
+
+<%= render "shared/property_abstract", property: @property_location.properties%>
