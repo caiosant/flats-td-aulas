@@ -1,15 +1,13 @@
 <h1>Cadastro de Tipos de Imóvel</h1>
 
-<div>
-    <% flash.each do |nome, mensagem| %>
-        <%= content_tag :div, mensagem, class: nome %>
-    <% end %>
-</div>
 
 <%= form_with model: @property_type do |form| %>
     <div>
         <%= form.label :name, 'Tipo' %>
         <%= form.text_field :name %>
+        <% @property_type.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
     </div>
     <div>
         <%= form.submit 'Enviar'%>

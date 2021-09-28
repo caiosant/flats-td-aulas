@@ -1,15 +1,12 @@
 <h1>Cadastro de Regiões</h1>
 
-<div>
-    <% flash.each do |nome, mensagem| %>
-        <%= content_tag :div, mensagem, class: nome %>
-    <% end %>
-</div>
-
 <%= form_with model: @property_location do |form| %>
     <div>
         <%= form.label :name, 'Região' %>
         <%= form.text_field :name %>
+        <% @property_location.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>        
     </div>
     <div>
         <%= form.submit 'Enviar'%>

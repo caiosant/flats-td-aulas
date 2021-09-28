@@ -3,6 +3,10 @@ class PropertyTypesController < ApplicationController
         @property_types = PropertyType.all
     end
 
+    def show
+        @property_type = PropertyType.find(params[:id])
+    end
+
     def new
         @property_type = PropertyType.new
     end
@@ -15,11 +19,6 @@ class PropertyTypesController < ApplicationController
         if @property_type.save
             redirect_to property_types_path
         else
-            if @property_type.name.empty?
-                flash.now[:alert] = "Erro: Tipo não pode ser vazio"
-            else
-                flash.now[:alert] = "Erro: Tipo #{@property_type.name.capitalize} já cadastrado"
-            end
             render :new
         end
     end

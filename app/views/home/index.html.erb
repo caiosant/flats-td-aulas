@@ -6,6 +6,22 @@
     <%= link_to 'Tipos de Imóveis', property_types_path %>
     <%= link_to 'Regiões', property_locations_path %>
 </nav>
+
+<div>
+    <div>
+        <span>Filtar por Tipo:</span>
+        <% @property_types.each do |property_type| %>
+            <%= link_to property_type.name, property_type %>
+        <% end %>
+    <div>
+    <div>
+        <span>Filtar por região:</span>
+        <% @property_locations.each do |property_location| %>
+            <%= link_to property_location.name, property_location %>
+        <% end %>
+    <div>
+    
+</div>
    
 <% if @properties.empty?%>
     <div>

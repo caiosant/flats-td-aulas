@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
     resources :properties, only: [:show, :new, :create]
 
-    resources :property_types, only: [:index, :new, :create]
+    resources :property_types, only: [:index, :new, :create, :show]
 
-    resources :property_locations, only: [:index, :new, :create]
+    resources :property_locations, only: [:index, :new, :create,  :show]
 end

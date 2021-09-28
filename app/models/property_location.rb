@@ -1,5 +1,5 @@
 class PropertyLocation < ApplicationRecord
     has_many :properties
 
-    validates :name, presence: true, uniqueness: {case_sensitive: false}
+    validates :name, presence: {message: 'não pode ser vazia'}, uniqueness: {message: "%{value} já cadastrada", case_sensitive: false}
 end

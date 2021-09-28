@@ -4,6 +4,10 @@ class PropertyLocationsController < ApplicationController
         @property_locations = PropertyLocation.all
     end
 
+    def show
+        @property_location = PropertyLocation.find(params[:id])
+    end
+
     def new
         @property_location = PropertyLocation.new
     end
@@ -16,11 +20,6 @@ class PropertyLocationsController < ApplicationController
         if @property_location.save
             redirect_to property_locations_path
         else
-            if @property_location.name.empty?
-                flash.now[:alert] = "Erro: Região não pode ser vazia"
-            else
-                flash.now[:alert] = "Erro: Região #{@property_location.name.capitalize} já cadastrada"
-            end
             render :new
         end
     end
