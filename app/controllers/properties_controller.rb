@@ -24,6 +24,26 @@ class PropertiesController < ApplicationController
         end
     end
 
+    def edit
+        @property = Property.find(params[:id])
+
+        @property_type = PropertyType.all
+        @property_location = PropertyLocation.all
+    end
+
+    def update
+        @property = Property.find(params[:id])
+
+        @property_type = PropertyType.all
+        @property_location = PropertyLocation.all
+
+        if @property.update(property_params)
+            redirect_to @property
+        else
+            render :edit
+        end
+    end
+
     private
 
     def property_params

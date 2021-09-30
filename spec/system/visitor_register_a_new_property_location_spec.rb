@@ -35,7 +35,7 @@ describe 'Visitor register property type' do
 
         #Assert
        ##expect(page).to have_content("Região não pode ser vazia")
-        expect(page).to have_content("não pode ser vazia")
+        expect(page).to have_content("Região não pode ficar em branco")
 
     end
 
@@ -51,7 +51,6 @@ describe 'Visitor register property type' do
         click_on 'Enviar'
 
         #Assert
-        expect(page).to have_content("Sudeste já cadastrada")
-
+        expect(page).to have_content("Região Sudeste já está em uso")
     end
 end
