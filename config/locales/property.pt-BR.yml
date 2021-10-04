@@ -7,3 +7,10 @@ pt-BR:
       property:
         title: 'Título'
         description: 'Descrição'
+        rooms: 'Quartos'
+        parking_slot: 'Estacionamento'
+        bathrooms: 'Banheiros'
+        pets: 'Aceita Animais'
+        daily_rate: 'Diária'
+        property_location_id: 'Região'
+        property_type_id: 'Tipo'

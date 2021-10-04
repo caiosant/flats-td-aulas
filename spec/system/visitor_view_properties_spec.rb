@@ -3,12 +3,14 @@ require 'rails_helper'
 describe 'Visitor visit homepage' do
   it 'and view properties' do
     #Arrange => Preparar (os dados)
+    property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
     casa = PropertyType.create!(name: 'Casa')
     sudeste = PropertyLocation.create!(name: 'Sudeste')
 
     Property.create!({ title: 'Casa com quintal em Copacabana', 
                       description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true
+                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true,
+                      property_owner: property_owner
                     })
 
     apartamento = PropertyType.create!(name: 'Apartamento')
@@ -16,7 +18,8 @@ describe 'Visitor visit homepage' do
 
     Property.create!({ title: 'Cobertura em Manaus',
                       description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
-                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true
+                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true,
+                      property_owner: property_owner
                     })
 
     #Act => Agir (executar a funcionalidade)
@@ -43,12 +46,14 @@ describe 'Visitor visit homepage' do
 
   it 'and view property details' do
     #Arrange => Preparar (os dados)
+    property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
     casa = PropertyType.create!(name: 'Casa')
     sudeste = PropertyLocation.create!(name: 'Sudeste')
 
     Property.create!({ title: 'Casa com quintal em Copacabana', 
                       description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true
+                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true,
+                      property_owner: property_owner
                     })
 
     apartamento = PropertyType.create!(name: 'Apartamento')
@@ -56,7 +61,8 @@ describe 'Visitor visit homepage' do
 
     Property.create!({ title: 'Cobertura em Manaus',
                       description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
-                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true
+                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true,
+                      property_owner: property_owner
                     })
 
     #Act => Agir (executar a funcionalidade)
@@ -77,12 +83,14 @@ describe 'Visitor visit homepage' do
   end
 
   it 'and view property details and return to home page' do
+    property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
     casa = PropertyType.create!(name: 'Casa')
     sudeste = PropertyLocation.create!(name: 'Sudeste')
 
     Property.create!({ title: 'Casa com quintal em Copacabana', 
                       description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true
+                      rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true, 
+                      property_owner: property_owner
                     })
 
     apartamento = PropertyType.create!(name: 'Apartamento')
@@ -90,7 +98,8 @@ describe 'Visitor visit homepage' do
 
     Property.create!({ title: 'Cobertura em Manaus',
                       description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
-                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true
+                      rooms: 5, bathrooms: 4, daily_rate: 1000, property_type: apartamento, property_location: norte, pets: true, parking_slot: true,
+                      property_owner: property_owner
                     })
     #Act => Agir (executar a funcionalidade)
     visit root_path

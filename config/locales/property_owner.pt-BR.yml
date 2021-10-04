@@ -1,0 +1,10 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      property_owner: 'Imóvel'
+    attributes:
+      property_owner:
+        email: 'E-mail'
+        password: 'Senha'
+        password_confirmation: 'Confirme a sua senha'

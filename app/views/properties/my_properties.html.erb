@@ -1,0 +1,12 @@
+<h1>Meus Imóveis</h1>
+
+<% if @properties.empty?%>
+    <div>
+        Você ainda não cadastrou imóveis
+    </div>
+    <div>
+        <%= link_to 'Clique aqui para criar um novo imóvel', new_property_path %>
+    </div>
+<% end %>
+
+<%= render "shared/property_abstract", property: @properties %>

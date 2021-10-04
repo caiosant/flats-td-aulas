@@ -1,4 +1,6 @@
 class PropertyTypesController < ApplicationController
+    before_action :authenticate_property_owner!, except: [:show]
+    
     def index
         @property_types = PropertyType.all
     end

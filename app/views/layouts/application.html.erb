@@ -11,6 +11,18 @@
   </head>
 
   <body>
+    <% if property_owner_signed_in? %>
+      <p><%= current_property_owner.email %>
+      <p><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></p>
+      <p><%= link_to 'Meus Imóveis',  my_properties_properties_path %></p>
+      <p><%= link_to 'Cadastrar Imóvel', new_property_path%></p>
+    <% else %>
+      <p><%= link_to 'Login', new_property_owner_session_path %></p>
+      <p><%= link_to 'Registre-se', new_property_owner_registration_path %></p>
+    <% end %>
+
+    <p><%= notice %></p>
+    <p><%= alert %></p>
     <%= yield %>
   </body>
 </html>

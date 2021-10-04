@@ -5,8 +5,10 @@ describe 'Visitor register property' do
         #Arrange
         PropertyType.create!(name: 'Casa')
         PropertyLocation.create!(name: 'Sul')
+        property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
 
         #Act
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar Imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
@@ -36,27 +38,30 @@ describe 'Visitor register property' do
     it 'and must fill all fields' do
         PropertyType.create!(name: 'Casa')
         PropertyLocation.create!(name: 'Sul')
+        property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar Imóvel'
         click_on 'Enviar'
     
-        expect(page).to have_content('não pode ficar em branco', count: 5)
-        # expect(page).to have_content('Título não pode ficar em branco')
-        # expect(page).to have_content('Descrição não pode ficar em branco')
-        # expect(page).to have_content('Quartos não pode ficar em branco')
-        # expect(page).to have_content('Banheiros não pode ficar em branco')
-        # expect(page).to have_content('Diária não pode ficar em branco')
+        expect(page).to have_content('Título não pode ficar em branco')
+        expect(page).to have_content('Descrição não pode ficar em branco')
+        expect(page).to have_content('Quartos não pode ficar em branco')
+        expect(page).to have_content('Banheiros não pode ficar em branco')
+        expect(page).to have_content('Diária não pode ficar em branco')
+        expect(page).to have_content('Região deve ser selecionada uma opção')
+        expect(page).to have_content('Tipo deve ser selecionada uma opção')
         expect(Property.count).to eq(0)
     
-      # TODO: verificar que rooms, daily_rate, bathrooms são numéricos
-      # TODO: verificar que rooms, daily_rate, bathrooms são maiores que zero
     end
 
     it 'and rooms, daily_rate and bathrooms must be bigger than zero' do
         PropertyType.create!(name: 'Casa')
         PropertyLocation.create!(name: 'Sul')
+        property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar Imóvel'
         click_on 'Enviar'

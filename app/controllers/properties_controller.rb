@@ -1,4 +1,6 @@
 class PropertiesController < ApplicationController
+    before_action :authenticate_property_owner!, except: [:show]
+
     def show
         @property = Property.find(params[:id])
     end
@@ -12,6 +14,7 @@ class PropertiesController < ApplicationController
     
     def create
         @property = Property.new(property_params)
+        @property.property_owner = current_property_owner
 
         
         @property_type = PropertyType.all
@@ -42,6 +45,10 @@ class PropertiesController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def my_properties
+        @properties = current_property_owner.properties
     end
 
     private

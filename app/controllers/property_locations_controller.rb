@@ -1,4 +1,5 @@
 class PropertyLocationsController < ApplicationController
+    before_action :authenticate_property_owner!, except: [:show]
     
     def index
         @property_locations = PropertyLocation.all

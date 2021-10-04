@@ -2,13 +2,16 @@ require 'rails_helper'
 
 describe 'User update a property' do
     it 'successfully' do
+        property_owner = PropertyOwner.create!({email: 'santanacaiio@gmail.com', password: '123456'})
         casa = PropertyType.create!(name: 'Casa')
         sudeste = PropertyLocation.create!(name: 'Sudeste')
         Property.create!({ title: 'Casa com quintal em Copacabana', 
                     description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                    rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true
+                    rooms: 3, bathrooms: 3, daily_rate: 500, property_type: casa, property_location: sudeste, pets: true, parking_slot: true,
+                    property_owner: property_owner
                 })
-
+        
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Casa com quintal em Copacabana'
         click_on 'Editar Imóvel'
